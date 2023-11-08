@@ -1,9 +1,14 @@
 name: Build-Test-Deploy
 on: push
+
+
 jobs:
+
  build:
     runs-on: ubuntu-latest
     steps: 
+      - name: Workflow Telemtery
+        uses: runforesight/workflow-telemetry-action@v1
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: echo "$(cat hello_world.txt)"
@@ -17,6 +22,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps: 
+      - name: Workflow Telemtery
+        uses: runforesight/workflow-telemetry-action@v1
       - name: checkout repo
         uses: actions/checkout@v3
       - name: use node.js
